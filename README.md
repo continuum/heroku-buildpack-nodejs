@@ -1,8 +1,12 @@
-Heroku Buildpack for Node.js
-============================
+Continuum's fork of Heroku Buildpack for Node.js
+================================================
 
-This is the official [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Node.js apps. If you fork this repository, please **update this README** to explain what your fork does and why it's special.
+A fork of [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) with greater flexibility for complex Node.js apps which may not live at the root of a repository.
 
+In practice, this extension allows for:
+
+- Searching the node app in the path specified by NODE_ROOT_PATH
+  (defaults to the root of the repository)
 
 How it Works
 ------------
