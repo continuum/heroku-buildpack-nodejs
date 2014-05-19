@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-if [ -z "$(find $1 -name package.json -d 2 -print)" ]; then
-  echo "no" && exit 1
-else
+# if [ -z "$(find $1 -name package.json -d 2 -print)" ]; then
+#  echo "no" && exit 1
+# else
   echo "Node.js" && exit 0
-fi
+# fi
