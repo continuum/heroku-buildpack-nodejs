@@ -10,7 +10,7 @@ cache_dir=$2
 env_dir=$3
 
 if [ -f "$env_dir/NODE_ROOT_PATH" ]; then
-  build_dir="$root_build_dir/$(cat $env_dir/NODE_ROOT_PATH)"
+  build_dir="$original_build_dir/$(cat $env_dir/NODE_ROOT_PATH)"
 else
   build_dir="$original_build_dir"
 fi
