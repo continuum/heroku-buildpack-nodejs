@@ -10,8 +10,10 @@ cache_dir=$2
 env_dir=$3
 
 if [ -f "$env_dir/NODE_ROOT_PATH" ]; then
-  build_dir="$original_build_dir/$(cat $env_dir/NODE_ROOT_PATH)"
+  node_root_path="/$(cat "$env_dir/NODE_ROOT_PATH")"
+  build_dir="$original_build_dir/$node_root_path"
 else
+  node_root_path=""
   build_dir="$original_build_dir"
 fi
 
@@ -143,7 +145,7 @@ fi
 # Update the PATH
 status "Building runtime environment"
 mkdir -p $original_build_dir/.profile.d
-echo "export PATH=\"\$HOME/$build_dir/vendor/node/bin:\$HOME/$build_dir/bin:\$HOME/$build_dir/node_modules/.bin:\$PATH\";" > $original_build_dir/.profile.d/nodejs.sh
+echo "export PATH=\"\$HOME$node_root_path/vendor/node/bin:\$HOME$node_root_path/bin:\$HOME$node_root_path/node_modules/.bin:\$PATH\";" > $original_build_dir/.profile.d/nodejs.sh
 
 # Post package.json to nomnom service
 # Use a subshell so failures won't break the build.
